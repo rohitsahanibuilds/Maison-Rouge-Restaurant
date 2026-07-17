@@ -501,59 +501,77 @@
   }
 
   // Contact Form
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    const contactFields = {
-      name: { id: 'contact-name', error: 'error-contact-name', validator: v => v.trim().length >= 2 },
-      email: { id: 'contact-email', error: 'error-contact-email', validator: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-      subject: { id: 'contact-subject', error: 'error-contact-subject', validator: v => v !== '' },
-      message: { id: 'contact-message', error: 'error-contact-message', validator: v => v.trim().length >= 10 }
-    };
+contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let isValid = true;
 
     Object.values(contactFields).forEach(field => {
-      const el = document.getElementById(field.id);
-      if (el) {
-        el.addEventListener('blur', () => validateField(el, field.error, field.validator));
-        el.addEventListener('input', () => {
-          if (el.style.borderColor) validateField(el, field.error, field.validator);
-        });
-      }
-    });
-
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      let isValid = true;
-      Object.values(contactFields).forEach(field => {
         const el = document.getElementById(field.id);
+
         if (el && !validateField(el, field.error, field.validator)) {
-          isValid = false;
+            isValid = false;
         }
-      });
-
-      const msgEl = document.getElementById('contact-message');
-      const btn = document.getElementById('contactSubmitBtn');
-
-      if (isValid) {
-        btn.disabled = true;
-        btn.textContent = 'Sending...';
-
-        setTimeout(() => {
-          msgEl.textContent = 'Thank you for your message! We will respond within 24 hours.';
-          msgEl.style.color = 'var(--color-gold)';
-          msgEl.style.display = 'block';
-          btn.disabled = false;
-          btn.textContent = 'Send Message';
-          contactForm.reset();
-        }, 1500);
-      } else {
-        msgEl.textContent = 'Please correct the errors above.';
-        msgEl.style.color = 'var(--color-rouge)';
-        msgEl.style.display = 'block';
-      }
     });
-  }
 
+    const msgEl = document.getElementById("contact-status");
+    const btn = document.getElementById("contactSubmitBtn");
+
+    if (!isValid) {
+        msgEl.style.display = "block";
+        msgEl.style.color = "red";
+        msgEl.textContent = "Please correct the errors above.";
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    try {
+
+        const response = await fetch(contactForm.action, {
+
+            method: "POST",
+
+            body: new FormData(contactForm),
+
+            headers: {
+                Accept: "application/json"
+            }
+
+        });
+
+        if (response.ok) {
+
+            msgEl.style.display = "block";
+            msgEl.style.color = "green";
+            msgEl.textContent =
+                "Thank you! Your message has been sent successfully.";
+
+            contactForm.reset();
+
+        } else {
+
+            msgEl.style.display = "block";
+            msgEl.style.color = "red";
+            msgEl.textContent =
+                "Unable to send your message.";
+
+        }
+
+    } catch (err) {
+
+        msgEl.style.display = "block";
+        msgEl.style.color = "red";
+        msgEl.textContent =
+            "Network error. Please try again.";
+
+    }
+
+    btn.disabled = false;
+    btn.textContent = "Send Message";
+
+});
   // Newsletter Form
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
