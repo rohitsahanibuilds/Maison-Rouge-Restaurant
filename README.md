@@ -288,7 +288,7 @@ copies or substantial portions of the Software.
 **Maison Rouge Development Team**
 
 - Website: [https://maison-rouge.netlify.app/](https://maisonrouge.com)
-- Email: [hello@maisonrouge.com](mailto:hello@maisonrouge.com)
+- Email: [rohit.sahani.dev@gmail.com](mailto:rohit.sahani.dev@gmail.com)
 - Instagram: [@maisonrouge](https://instagram.com/maisonrouge)
 
 ---
