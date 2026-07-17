@@ -298,4 +298,3 @@ copies or substantial portions of the Software.
   <br>
   <strong>Maison Rouge</strong> 🍷
 </p>
-"# Maison-Rouge-Restaurant" 
