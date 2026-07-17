@@ -113,7 +113,7 @@ restaurant/
 
 ```bash
 # Clone the repository
-git clone https://github.com/rohitsahanibuilds/maison-rouge-restaurant.git
+git clone https://github.com/rohitsahanibuilds/Maison-Rouge-Restaurant.git
 
 # Navigate to project directory
 cd maison-rouge
