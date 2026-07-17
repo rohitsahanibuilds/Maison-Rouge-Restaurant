@@ -113,7 +113,7 @@ restaurant/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/maison-rouge.git
+git clone https://github.com/rohitsahanibuilds/maison-rouge-restaurant.git
 
 # Navigate to project directory
 cd maison-rouge
@@ -287,7 +287,7 @@ copies or substantial portions of the Software.
 
 **Maison Rouge Development Team**
 
-- Website: [https://maisonrouge.com](https://maisonrouge.com)
+- Website: [https://maison-rouge.netlify.app/](https://maisonrouge.com)
 - Email: [hello@maisonrouge.com](mailto:hello@maisonrouge.com)
 - Instagram: [@maisonrouge](https://instagram.com/maisonrouge)
 
