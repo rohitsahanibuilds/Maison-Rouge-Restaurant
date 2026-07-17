@@ -116,7 +116,7 @@ restaurant/
 git clone https://github.com/rohitsahanibuilds/Maison-Rouge-Restaurant.git
 
 # Navigate to project directory
-cd maison-rouge
+cd Maison-Rouge-Restaurant
 
 # Open in browser (no build step required)
 open index.html
