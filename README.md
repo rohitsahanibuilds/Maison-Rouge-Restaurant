@@ -2,7 +2,7 @@
 
 > A premium, production-ready fictional restaurant website inspired by Michelin-star dining establishments.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_BADGE_ID/deploy-status)](https://app.netlify.com/sites/maisonrouge/deploys)
+[🌐 Live Demo](https://maison-rouge.netlify.app/)
 
 ---
 
